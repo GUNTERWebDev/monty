@@ -44,7 +44,7 @@ typedef struct instruction_s
  * @lifi: flag change stack <-> queue
  * Description: carries values through the program
  */
-typedef struct diif_t
+typedef struct diff_t
 {
 	char *arg;
 	FILE *file;
