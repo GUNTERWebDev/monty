@@ -40,24 +40,25 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /**
- * struct bus_s - variables -args, file, line content
+ * struct diff_s - variables -args, file, line content
  * @arg: value
  * @file: pointer to monty file
  * @content: line content
  * @lifi: flag change stack <-> queue
  * Description: carries values through the program
  */
-typedef struct diff_t
+typedef struct diff_s
 {
 	char *arg;
-	FILE *file;
-	char *content;
+	FILE *fd;
+	char *cmd;
 	int lifi;
 }  diff_t;
 extern diff_t diff;
 void read_monty(FILE *fd);
+void free_stack(stack_t *head);
 void execute(char *cmd, unsigned int count, stack_t *stack, FILE *fd);
-stack_t  *add_TOS(stack_t **stack, unsigned int n);
+void addnode(stack_t **head, int n);
 stack_t *add_queue(stack_t **stack, int n);
 int _atoi(char *nptr, char **endptr, int base);
 void push(stack_t **stack, unsigned int count);

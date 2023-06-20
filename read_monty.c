@@ -2,17 +2,22 @@
 
 void read_monty(FILE *fd)
 {
-	char *cmd = NULL;
+	char *cmd;
 	size_t len = 0;
-	size_t cmd_len;
+	size_t cmd_len = 1;
 	stack_t *stack = NULL;
 	unsigned int count = 0;
-
-	cmd_len = getline(&cmd, &len, fd);
+	
 	while (cmd_len > 0)
 	{
-		execute(cmd, count, stack, fd);
+		cmd= NULL;
+		cmd_len = getline(&cmd, &len, fd);
+		diff.cmd = cmd;
 		count++;
+		if (cmd_len > 0)
+			execute(cmd, count, stack, fd);
+		free(cmd);
 	}
-	free(cmd);
+	free_stack(stack);
+	fclose(fd);
 }

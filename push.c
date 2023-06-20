@@ -1,46 +1,36 @@
 #include "monty.h"
-
-stack_t  *add_TOS(stack_t **stack, unsigned int n)
+diff_t diff;
+void push(stack_t **stack, unsigned int count)
 {
-	stack_t *tmp;
+        int n, j = 0, flag = 0;
+        printf("%s\n", diff.arg);
+        if (diff.arg == NULL)
+        {
+                fprintf(stderr, "L%d: usage: push integer\n", count);
+                fclose(diff.fd);
+                free_stack(*stack);
+                free(diff.cmd);
+                exit(EXIT_FAILURE);
+        }
+        if (diff.arg[0] == '-')
+                j++;
+        for (; diff.arg[j] != '\0'; j++)
+        {
+                if (diff.arg[j] > 57 || diff.arg[j] < 48)
+                        flag = 1;
+        }
+        if (flag == 1)
+        {
+                fprintf(stderr, "L%d: usage: push integer\n", count);
+                fclose(diff.fd);
+                free_stack(*stack);
+                free(diff.cmd);
+                exit(EXIT_FAILURE);
+        }
 
-	tmp = malloc(sizeof(*tmp));
-	if (tmp == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed");
-		exit(EXIT_FAILURE);
-	}
-		tmp->n = n;
-	tmp->prev = NULL;
-	tmp->next = NULL;
-	if (stack != NULL && (*stack))
-	{
-		(*stack)->prev = tmp;
-		tmp->next = *(stack);
-	}
-	if (stack != NULL)
-		*(stack) = tmp;
-	return (tmp);
-}
-stack_t *add_queue(stack_t **stack, int n)
-{
-	stack_t *new_e, *node;
-
-	new_e = malloc(sizeof(*new_e));
-	if (!new_e)
-		fprintf(stderr, "Error: malloc failed"), exit(EXIT_FAILURE);
-	new_e->n = n, new_e->prev = NULL, new_e->next = NULL;
-
-	if (!stack || !(*stack))
-		*stack = new_e;
-	else
-	{
-		node = *stack;
-		while (node->next)
-			node = node->next;
-		node->next = new_e;
-		new_e->prev = node;
-	}
-
-	return (new_e);
+        n = atoi(diff.arg);
+        if (diff.lifi == 0)
+                addnode(stack, n);
+        else
+                add_queue(stack, n);
 }
