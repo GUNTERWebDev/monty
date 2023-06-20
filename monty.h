@@ -54,4 +54,8 @@ typedef struct diff_t
 extern diff_t diff;
 void read_monty(FILE *fd);
 void execute(char *cmd, unsigned int count, stack_t *stack, FILE *fd);
+stack_t  *add_TOS(stack_t **stack, unsigned int n);
+stack_t *add_queue(stack_t **stack, int n);
+void push(stack_t **stack, unsigned int count);
+void pall(stack_t **head, unsigned int counter);
 #endif

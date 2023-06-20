@@ -9,7 +9,7 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	fd = fopen(av[1], "r");
-	if (fd == -1)
+	if (fd == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
