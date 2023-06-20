@@ -36,6 +36,22 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+ * struct bus_s - variables -args, file, line content
+ * @arg: value
+ * @file: pointer to monty file
+ * @content: line content
+ * @lifi: flag change stack <-> queue
+ * Description: carries values through the program
+ */
+typedef struct diif_t
+{
+	char *arg;
+	FILE *file;
+	char *content;
+	int lifi;
+}  diff_t;
+extern diff_t diff;
 void read_monty(FILE *fd);
 void execute(char *cmd, unsigned int count, stack_t *stack, FILE *fd);
 #endif

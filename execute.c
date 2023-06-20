@@ -16,6 +16,7 @@ void execute(char *cmd, unsigned int count, stack_t *stack, FILE *fd)
 	op = strtok(cmd, " \n\t");
 	if (op && op[0] == "#")
 		return (0);
+	diff.arg = strtok(NULL, " \n\t");
 	while (lists[i].opcode && op)
 	{
 		if (strcmp(op, lists[i].opcode) == 0)
@@ -30,3 +31,5 @@ void execute(char *cmd, unsigned int count, stack_t *stack, FILE *fd)
 		fprintf(stderr, "L%s: unknown instruction %s\n", count, op);
 		exit(EXIT_FAILURE);
 	}
+	return (1);
+}
