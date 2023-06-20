@@ -25,7 +25,7 @@ void execute(char *cmd, unsigned int count, stack_t *stack, FILE *fd)
 		}
 		i++;
 	}
-	if (op == NULL && lists[i].opcode == NULL)
+	if (op && lists[i].opcode == NULL)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", count, op);
 		fclose(fd);
@@ -33,4 +33,5 @@ void execute(char *cmd, unsigned int count, stack_t *stack, FILE *fd)
 		free(cmd);
 		exit(EXIT_FAILURE);
 	}
+	return;
 }

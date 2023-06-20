@@ -7,10 +7,10 @@ void push(stack_t **stack, unsigned int count)
         if (diff.arg == NULL)
         {
                 fprintf(stderr, "L%d: usage: push integer\n", count);
-                fclose(diff.fd);
+		fclose(diff.fd);
                 free_stack(*stack);
                 free(diff.cmd);
-                exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
         }
         if (diff.arg[0] == '-')
                 j++;
@@ -25,7 +25,7 @@ void push(stack_t **stack, unsigned int count)
                 fclose(diff.fd);
                 free_stack(*stack);
                 free(diff.cmd);
-                exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
         }
 
         n = atoi(diff.arg);
