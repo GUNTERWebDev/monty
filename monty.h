@@ -1,6 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 #define  _GNU_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -8,6 +9,8 @@
 #include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
+
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -56,6 +59,7 @@ void read_monty(FILE *fd);
 void execute(char *cmd, unsigned int count, stack_t *stack, FILE *fd);
 stack_t  *add_TOS(stack_t **stack, unsigned int n);
 stack_t *add_queue(stack_t **stack, int n);
+int _atoi(char *nptr, char **endptr, int base);
 void push(stack_t **stack, unsigned int count);
 void pall(stack_t **head, unsigned int counter);
 #endif
