@@ -3,12 +3,10 @@ diff_t diff;
 void push(stack_t **stack, unsigned int count)
 {
         int n, j = 0, flag = 0;
-        printf("%s\n", diff.arg);
         if (diff.arg == NULL)
         {
                 fprintf(stderr, "L%d: usage: push integer\n", count);
 		fclose(diff.fd);
-                free_stack(*stack);
                 free(diff.cmd);
 		exit(EXIT_FAILURE);
         }
@@ -23,14 +21,29 @@ void push(stack_t **stack, unsigned int count)
         {
                 fprintf(stderr, "L%d: usage: push integer\n", count);
                 fclose(diff.fd);
-                free_stack(*stack);
                 free(diff.cmd);
 		exit(EXIT_FAILURE);
         }
 
         n = atoi(diff.arg);
-        if (diff.lifi == 0)
-                addnode(stack, n);
+	if (diff.lifi == 0)
+                add_dnodeint(stack, n);
         else
-                add_queue(stack, n);
+                addqueue(stack, n);
+}
+void pall(stack_t **stack, unsigned int counter)
+{
+	stack_t *h;
+	(void)counter;
+
+	h = *stack;
+	if (h == NULL)
+	{
+		return;
+	}
+	while (h)
+	{
+		printf("%d\n", h->n);
+		h = h->next;
+	}
 }

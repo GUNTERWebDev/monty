@@ -29,9 +29,8 @@ int main(int ac, char **av)
                 count++;
                 if (cmd_len > 0)
                         execute(cmd, count, stack, fd);
-                free(cmd);
-        }
-        free_stack(stack);
+        	free(cmd);
+	}
 	fclose(fd);
 	return (0);
 }
