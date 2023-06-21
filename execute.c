@@ -17,7 +17,7 @@ void execute(char *cmd, unsigned int count, stack_t **stack, FILE *fd)
 		{"nop" , nop}, {"sub", sub},
 		{"div", f_div}, {"mul", mul},
 		{"mod", mod}, {"pchar", pchar},
-		{"pstr", pstr},
+		{"pstr", pstr}, {"rotl", rotl},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;

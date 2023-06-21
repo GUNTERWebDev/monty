@@ -75,4 +75,5 @@ void mul(stack_t **head, unsigned int count);
 void mod(stack_t **head, unsigned int count);
 void pchar(stack_t **head, unsigned int count);
 void pstr(stack_t **head, unsigned int count);
+void rotl(stack_t **head, unsigned int count);
 #endif
