@@ -65,4 +65,5 @@ void push(stack_t **stack, unsigned int count);
 void pall(stack_t **head, unsigned int counter);
 void stack(stack_t **stack, unsigned int count);
 void queue(stack_t **stack, unsigned int count);
+void pop(stack_t **head, unsigned int count);
 #endif

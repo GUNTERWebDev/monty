@@ -12,7 +12,7 @@ void execute(char *cmd, unsigned int count, stack_t **stack, FILE *fd)
 {
 	instruction_t lists[] = {
 		{"push", push}, {"pall", pall},
-		{"pint", pint},
+		{"pint", pint}, {"pop", pop},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
