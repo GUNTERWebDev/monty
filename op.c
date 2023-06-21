@@ -12,6 +12,8 @@ void sub(stack_t **head, unsigned int count)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", count);
+		fclose(diff.fd);
+		free(diff.cmd);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
