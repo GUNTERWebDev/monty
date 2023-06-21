@@ -7,6 +7,11 @@ void sub(stack_t **head, unsigned int count)
 
 	h = *head;
 
+	if (h == NULL)
+       {
+                fprintf(stderr, "L%d: can't add, stack too short\n", count);
+                exit(EXIT_FAILURE);
+        }
 	while (h)
 	{
 		h = h->next;
