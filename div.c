@@ -2,7 +2,7 @@
 void f_div(stack_t **head, unsigned int count)
 {
 	stack_t *h;
-	int len = 0, div;
+	int len = 0;
 
 	h = *head;
 
@@ -22,8 +22,7 @@ void f_div(stack_t **head, unsigned int count)
               fprintf(stderr, "L%d: division by zero\n", count);
               exit(EXIT_FAILURE);
         }
-	div = h->n / h->next->n;
-	h->next->n = div;
+	h->next->n /= h->n;
 	*head = h->next;
 	free(h);
 }
