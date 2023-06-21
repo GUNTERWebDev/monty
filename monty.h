@@ -26,19 +26,6 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 /**
- * struct instruction_s - opcode and its function
- * @opcode: the opcode
- * @f: function to handle the opcode
- *
- * Description: opcode and its function
- * for stack, queues, LIFO, FIFO
- */
-typedef struct instruction_s
-{
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
-} instruction_t;
-/**
  * struct diff_s - variables -args, file, line content
  * @arg: value
  * @file: pointer to monty file
@@ -53,15 +40,29 @@ typedef struct diff_s
 	char *cmd;
 	int lifi;
 }  diff_t;
+/**
+ * struct instruction_s - opcode and its function
+ * @opcode: the opcode
+ * @f: function to handle the opcode
+ *
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO
+ */
+typedef struct instruction_s
+{
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
+} instruction_t;
+
 extern diff_t diff;
 void read_monty(FILE *fd);
 void free_stack(stack_t *head);
-void execute(char *cmd, unsigned int count, stack_t **stack, FILE *fd, diff_t diff);
+void execute(char *cmd, unsigned int count, stack_t **stack, FILE *fd);
 stack_t  *add_dnodeint(stack_t  **head, const int n);
 void pint(stack_t **head, unsigned int count);
 void addqueue(stack_t **head, int n);
-int _atoi(char *nptr, char **endptr, int base);
-void push(stack_t **stack, unsigned int count, diff_t diff);
-void pall(stack_t **head, unsigned int counter, diff_t diff);
-
+void push(stack_t **stack, unsigned int count);
+void pall(stack_t **head, unsigned int counter);
+void stack(stack_t **stack, unsigned int count);
+void queue(stack_t **stack, unsigned int count);
 #endif

@@ -1,4 +1,5 @@
 #include "monty.h"
+diff_t diff = {NULL, NULL, NULL, 0};
 /**
  * main - main
  * @ac: count
@@ -11,7 +12,6 @@ int main(int ac, char **av)
 	FILE *fd;
 	char *cmd;
 	size_t len;
-	diff_t diff;
 	ssize_t cmd_len;
 	stack_t *stack = NULL;
 	unsigned int count;
@@ -38,7 +38,7 @@ int main(int ac, char **av)
 		diff.cmd = cmd;
 		count++;
 		if (cmd_len > 0)
-			execute(cmd, count, &stack, fd, diff);
+			execute(cmd, count, &stack, fd);
 		free(cmd);
 	}
 	free_stack(stack);

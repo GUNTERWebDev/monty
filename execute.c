@@ -8,7 +8,7 @@
  *
  * Return: void
  */
-void execute(char *cmd, unsigned int count, stack_t **stack, FILE *fd, diff_t diff)
+void execute(char *cmd, unsigned int count, stack_t **stack, FILE *fd)
 {
 	instruction_t lists[] = {
 		{"push", push}, {"pall", pall},
@@ -28,7 +28,7 @@ void execute(char *cmd, unsigned int count, stack_t **stack, FILE *fd, diff_t di
 	{
 		if (strcmp(op, lists[i].opcode) == 0)
 		{
-			lists[i].f(stack, count, diff);
+			lists[i].f(stack, count);
 			return;
 		}
 		i++;
@@ -36,6 +36,7 @@ void execute(char *cmd, unsigned int count, stack_t **stack, FILE *fd, diff_t di
 	if (op && lists[i].opcode == NULL)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", count, op);
+		free_stack(*stack);
 		fclose(fd);
 		free(cmd);
 		exit(EXIT_FAILURE);
