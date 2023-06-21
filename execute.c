@@ -18,6 +18,7 @@ void execute(char *cmd, unsigned int count, stack_t **stack, FILE *fd)
 		{"div", f_div}, {"mul", mul},
 		{"mod", mod}, {"pchar", pchar},
 		{"pstr", pstr}, {"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
