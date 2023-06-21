@@ -1,5 +1,4 @@
 #include "monty.h"
-diff_t diff;
 /**
  * push - push a node into stack
  * @stack: stack
@@ -11,6 +10,7 @@ void push(stack_t **stack, unsigned int count)
 {
 	int n, j, flag;
 
+	diff_t diff = {NULL, NULL, NULL, 0};
 	j = 0;
 	flag = 0;
 	if (diff.arg == NULL)
