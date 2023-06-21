@@ -6,7 +6,7 @@
  *
  * Return: void
  */
-void push(stack_t **stack, unsigned int count)
+void push(stack_t **stack, unsigned int count, diff_t diff)
 {
 	int n, j, flag;
 
@@ -50,7 +50,7 @@ void push(stack_t **stack, unsigned int count)
  *
  * Return: void
  */
-void pall(stack_t **stack, unsigned int count)
+void pall(stack_t **stack, unsigned int count, diff_t diff)
 {
 	stack_t *h;
 	(void)count;

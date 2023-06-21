@@ -56,11 +56,12 @@ typedef struct diff_s
 extern diff_t diff;
 void read_monty(FILE *fd);
 void free_stack(stack_t *head);
-void execute(char *cmd, unsigned int count, stack_t **stack, FILE *fd);
+void execute(char *cmd, unsigned int count, stack_t **stack, FILE *fd, diff_t diff);
 stack_t  *add_dnodeint(stack_t  **head, const int n);
 void pint(stack_t **head, unsigned int count);
 void addqueue(stack_t **head, int n);
 int _atoi(char *nptr, char **endptr, int base);
-void push(stack_t **stack, unsigned int count);
-void pall(stack_t **head, unsigned int counter);
+void push(stack_t **stack, unsigned int count, diff_t diff);
+void pall(stack_t **head, unsigned int counter, diff_t diff);
+
 #endif
