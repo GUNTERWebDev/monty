@@ -1,7 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
 #define  _GNU_SOURCE
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -57,7 +56,7 @@ typedef struct diff_s
 extern diff_t diff;
 void read_monty(FILE *fd);
 void free_stack(stack_t *head);
-void execute(char *cmd, unsigned int count, stack_t *stack, FILE *fd);
+void execute(char *cmd, unsigned int count, stack_t **stack, FILE *fd);
 stack_t  *add_dnodeint(stack_t  **head, const int n);
 void pint(stack_t **head, unsigned int count);
 void addqueue(stack_t **head, int n);

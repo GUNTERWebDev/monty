@@ -1,6 +1,14 @@
 #include "monty.h"
-
-void execute(char *cmd, unsigned int count, stack_t *stack, FILE *fd)
+/**
+ * execute - execute the cmd command and calls functions
+ * @cmd: command
+ * @count: count
+ * @stack: stack
+ * @fd: file descriptor
+ *
+ * Return: void
+ */
+void execute(char *cmd, unsigned int count, stack_t **stack, FILE *fd)
 {
 	instruction_t lists[] = {
 		{"push", push}, {"pall", pall},
@@ -20,7 +28,7 @@ void execute(char *cmd, unsigned int count, stack_t *stack, FILE *fd)
 	{
 		if (strcmp(op, lists[i].opcode) == 0)
 		{
-			lists[i].f(&stack, count);
+			lists[i].f(stack, count);
 			return;
 		}
 		i++;
